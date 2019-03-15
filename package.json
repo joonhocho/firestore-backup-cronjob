@@ -1,0 +1,35 @@
+{
+  "name": "firestore-backup-cronjob",
+  "version": "0.0.1",
+  "description": "Scheduled Cloud Firestore backups via AppEngine cron",
+  "main": "lib/app.js",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json && tscpaths -p ./tsconfig.json -s ./src -o ./lib",
+    "deploy": "gcloud app deploy --quiet app.yaml cron.yaml",
+    "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "tslint -c ./tslint.json \"src/**/*\"",
+    "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
+    "reinstall": "rm -rf ./node_modules yarn.lock && yarn",
+    "start": "node lib/app.js"
+  },
+  "author": "Joon Ho Cho",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dateformat": "^3.0.3",
+    "express": "^4.16.4",
+    "googleapis": "^34.0.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/dateformat": "^3.0.0",
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.11.3",
+    "prettier": "^1.16.4",
+    "tscpaths": "^0.0.6",
+    "tslint": "^5.14.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3333"
+  }
+}
